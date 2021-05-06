@@ -1,25 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useReducer} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [checked,toggle] = useReducer(
+        checked => !checked,
+        false);
+
+    return (
+      <>
+        <input type="Checkbox"
+               value={checked}
+               onChange={toggle}/>
+          <p>{checked ? "checked" : "not checked"}</p>
+      </>
+    );
 }
 
 export default App;
